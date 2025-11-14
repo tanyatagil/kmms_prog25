@@ -2,7 +2,8 @@
 
 namespace io
 {
-    void input_array(int*& arr, int& size) {
+    void input_array(int*& arr, int& size)
+    {
         std:: cout << "Введите размер массива: ";
         std::cin>>size;
 
@@ -14,9 +15,11 @@ namespace io
         }
     }
 
-    void print_array(const int* arr, int size) {
+    void print_array(const int* arr, int size)
+    {
         std::cout << "Отсортированный массив: ";
-        for (int arr_number = 0; arr_number < size; arr_number++){
+        for (int arr_number = 0; arr_number < size; arr_number++)
+        {
             std::cout << arr[arr_number] << " " ;
         }
         std::cout << std::endl;
