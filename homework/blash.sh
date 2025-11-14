@@ -1,4 +1,4 @@
-CPP_FILES="io.cpp ttv.cpp main.cpp"
+CPP_FILES="io.cpp sort.cpp main.cpp"
 APP=example
 
 if [ -f $APP ]; then rm $APP

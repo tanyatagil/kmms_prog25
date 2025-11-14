@@ -1,13 +1,15 @@
-#include "ttv.hpp"
+#include <iostream>
+#include "sort.hpp"
 #include "io.hpp"
 
-int main() {
+int main()
+{
     int size;
     int* arr = nullptr;
 
-    IO::input_array(arr, size);
+    io::input_array(arr, size);
     ttv::insertion_sort(arr, size);
-    IO::print_array(arr, size);
+    io::print_array(arr, size);
 
     delete[] arr;
     return 0;

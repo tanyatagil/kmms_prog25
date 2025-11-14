@@ -3,9 +3,10 @@
 
 #include <iostream>
 
-namespace IO {
+namespace io
+{
     void input_array(int*& arr, int& size);
-    void print_array(int* arr, int size);
+    void print_array(const int* arr, int size);
 }
 
 #endif

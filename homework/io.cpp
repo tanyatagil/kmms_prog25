@@ -1,6 +1,7 @@
 #include "io.hpp"
 
-namespace IO {
+namespace io
+{
     void input_array(int*& arr, int& size) {
         std:: cout << "Введите размер массива: ";
         std::cin>>size;
@@ -13,7 +14,7 @@ namespace IO {
         }
     }
 
-    void print_array(int* arr, int size) {
+    void print_array(const int* arr, int size) {
         std::cout << "Отсортированный массив: ";
         for (int arr_number = 0; arr_number < size; arr_number++){
             std::cout << arr[arr_number] << " " ;

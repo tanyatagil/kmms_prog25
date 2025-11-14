@@ -1,7 +1,8 @@
-#ifndef TTV_HPP
-#define TTV_HPP
+#ifndef SORT_HPP
+#define SORT_HPP
 
-namespace ttv{
+namespace ttv
+{
     void insertion_sort(int* arr, int size);
 }
 
