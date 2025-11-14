@@ -1,5 +1,5 @@
-#ifndef SORT_HPP
-#define SORT_HPP
+#ifndef SORTING_HPP
+#define SORTING_HPP
 
 namespace ttv
 {
