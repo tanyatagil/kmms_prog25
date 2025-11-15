@@ -2,7 +2,7 @@
 
 namespace ttv
 {
-    void insertion_sort(int* arr, int size)
+    void insertion_sort(int* arr, const int size)
     {
         for (int i = 1;i < size; i++)
         {

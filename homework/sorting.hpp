@@ -3,7 +3,7 @@
 
 namespace ttv
 {
-    void insertion_sort(int* arr, int size);
+    void insertion_sort(int* arr, const int size);
 }
 
 #endif

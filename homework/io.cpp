@@ -1,13 +1,11 @@
 #include "io.hpp"
 
-namespace io
-{
-    void input_array(int*& arr, int& size)
-    {
-        std:: cout << "Введите размер массива: ";
-        std::cin>>size;
+#include <iostream>
 
-        arr = new int[size];
+namespace ttv
+{
+    void input_array(int* arr, int size)
+    {
         for (int arr_number = 0; arr_number < size; arr_number++)
         {
             std::cout << "Введите " << arr_number + 1 << " элемент массива:" << std::endl;
@@ -15,7 +13,7 @@ namespace io
         }
     }
 
-    void print_array(const int* arr, int size)
+    void print_array(const int* arr, const int size)
     {
         std::cout << "Отсортированный массив: ";
         for (int arr_number = 0; arr_number < size; arr_number++)
