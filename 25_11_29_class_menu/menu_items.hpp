@@ -14,4 +14,9 @@ namespace TTagilceva {
     extern const MenuItem LETI;
     extern const MenuItem BACK_TO_MAIN;
 
+    extern const MenuItem PM_PU;
+    extern const MenuItem MATMECH;
+    extern const MenuItem LINGUISTICS;
+    extern const MenuItem BACK_TO_UNIVERSITIES;
+
 }
