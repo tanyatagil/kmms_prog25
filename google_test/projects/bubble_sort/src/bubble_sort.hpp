@@ -1,5 +1,5 @@
-#ifndef SORT_HPP
-#define SORT_HPP
+#ifndef BUBBLE_SORT_HPP
+#define BUBBLE_SORT_HPP
 
 namespace ttv {
     namespace sortings {

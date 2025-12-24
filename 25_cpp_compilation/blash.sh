@@ -1,9 +1,9 @@
-MAIN=main.cpp
+CPP_FILES="io.cpp sort.cpp main.cpp"
 APP=example
 
 if [ -f $APP ]; then rm $APP
 fi
 
-g++ $MAIN -o $APP
+g++ $CPP_FILES -o $APP
 
 ./$APP
