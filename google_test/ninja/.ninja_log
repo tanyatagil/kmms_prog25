@@ -1,0 +1,13 @@
+# ninja log v6
+3	381	1766840274286821358	bubble_sort/CMakeFiles/sort_lib999.dir/src/bubble_sort.cpp.o	8e28aa57cc1031ed
+381	405	1766840274665820634	bubble_sort/libsort_lib999.a	8e2e3b57e42b00a5
+4	1263	1766840274287821356	lib/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o	5e478c652c1eb822
+5431	5527	1766840279714810985	lib/libgtest.a	a90c228d4c27716b
+4	1393	1766840274288350899	bubble_sort/test/CMakeFiles/test_sort.dir/test_bubble.cpp.o	727a6625958724fe
+3	1660	1766840274287745089	lib/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o	90da2f7c9cbb81c6
+2	2754	1766840274286803479	lib/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o	9f6da74ca3dee739
+2	5430	1766840274285821360	lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	3645fb2ebf780c52
+5527	5547	1766840279811658963	lib/libgtest_main.a	4e341b2bc757cc3d
+5527	5566	1766840279810810802	lib/libgmock.a	713b03b6a17c7d6e
+5566	5586	1766840279849810727	lib/libgmock_main.a	56b5522a351a44b9
+5528	5719	1766840279811810800	bubble_sort/test/test_sort	a5e06be6a911eb4e
