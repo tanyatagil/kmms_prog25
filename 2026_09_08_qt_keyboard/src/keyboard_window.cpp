@@ -25,7 +25,7 @@ KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
 	display->setMinimumHeight(80);
 	display->setFont(QFont("Roboto", 40));
     display->setReadOnly(true);
-	display->setText("Помоги мне заработать лучше...");
+	//display->setText("Помоги мне заработать лучше...");
 
 	keyboard = new KeyBoard(keyboard_width);
 
@@ -33,6 +33,10 @@ KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
 	main_layout->addLayout(smail_layout);
     main_layout->addWidget(display);
     main_layout->addWidget(keyboard);
+
+	connect(keyboard, &KeyBoard::key_pressed, this, [this](const QString& text){display->setText(display->text() + text);});
+	connect(keyboard, &KeyBoard::backspace_pressed, this, [this]() {QString text = display->text();text.chop(1);display->setText(text);});
+
 }
 
 void KeyBoardWindow::keyPressEvent(QKeyEvent* event) {
