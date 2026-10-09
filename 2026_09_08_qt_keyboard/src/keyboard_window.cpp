@@ -4,6 +4,7 @@
 #include <QLabel>
 #include <QPixmap>
 #include <QVBoxLayout>
+#include <QPushButton>
 
 
 using biv::KeyBoardWindow;
@@ -11,9 +12,9 @@ using biv::KeyBoardWindow;
 KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
 	const int keyboard_width = 1160;
 	resize(keyboard_width, 710);
-    setWindowTitle("Грустная Клавиатура");
+    setWindowTitle("Довольная Клавиатура");
 	
-	QPixmap pixmap("img/grustnii-smail.png");
+	QPixmap pixmap("img/vesoli_smail.png");
 	QLabel* image = new QLabel(this);
 	image->setFixedSize(200, 200);
 	image->setPixmap(pixmap);
@@ -31,7 +32,11 @@ KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
 	keyboard = new KeyBoard(keyboard_width);
 	display->installEventFilter(this);
 	keyboard->installEventFilter(this);
-	setFocusPolicy(Qt::StrongFocus);
+	for (QPushButton* button : keyboard->findChildren<QPushButton*>()) {
+		button->installEventFilter(this);
+	}
+
+setFocusPolicy(Qt::StrongFocus);
 
     QVBoxLayout* main_layout = new QVBoxLayout(this);
 	main_layout->addLayout(smail_layout);
@@ -44,18 +49,7 @@ KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
 }
 
 void KeyBoardWindow::keyPressEvent(QKeyEvent* event) {
-    if (event->key() == Qt::Key_Backspace) {
-        QString text = display->text();
-        text.chop(1);
-        display->setText(text);
-        return;
-    }
-
-    if (event->key() == Qt::Key_Space) {
-		QString text = display->text();
-        display->setText(text + QStringLiteral(" "));
-        return;
-    }
+    
 
     const QString text = event->text();
 
@@ -71,6 +65,11 @@ bool KeyBoardWindow::eventFilter(QObject* watched, QEvent* event) {
             QString text = display->text();
             text.chop(1);
             display->setText(text);
+            return true;
+        }
+
+        if (key_event->key() == Qt::Key_Space) {
+            display->setText(display->text() + QStringLiteral(" "));
             return true;
         }
     }
