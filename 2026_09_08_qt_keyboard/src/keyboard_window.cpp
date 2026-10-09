@@ -1,9 +1,10 @@
 #include "keyboard_window.hpp"
-
+#include <QKeyEvent>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QPixmap>
 #include <QVBoxLayout>
+
 
 using biv::KeyBoardWindow;
 
@@ -28,6 +29,9 @@ KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
 	//display->setText("Помоги мне заработать лучше...");
 
 	keyboard = new KeyBoard(keyboard_width);
+	display->installEventFilter(this);
+	keyboard->installEventFilter(this);
+	setFocusPolicy(Qt::StrongFocus);
 
     QVBoxLayout* main_layout = new QVBoxLayout(this);
 	main_layout->addLayout(smail_layout);
@@ -40,9 +44,36 @@ KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
 }
 
 void KeyBoardWindow::keyPressEvent(QKeyEvent* event) {
-	const int key = event->nativeVirtualKey();
-	if (keyboard->is_key_allowed(key)) {
-		display->setText(display->text() + keyboard->get_key_text(key));
-		keyboard->animate_button(key);
-	}
+    if (event->key() == Qt::Key_Backspace) {
+        QString text = display->text();
+        text.chop(1);
+        display->setText(text);
+        return;
+    }
+
+    if (event->key() == Qt::Key_Space) {
+		QString text = display->text();
+        display->setText(text + QStringLiteral(" "));
+        return;
+    }
+
+    const QString text = event->text();
+
+    if (text.size() == 1 && (text.at(0).isLetter() || text.at(0).isDigit())) {
+        display->setText(display->text() + text);
+    }
+}
+bool KeyBoardWindow::eventFilter(QObject* watched, QEvent* event) {
+    if (event->type() == QEvent::KeyPress) {
+        QKeyEvent* key_event = static_cast<QKeyEvent*>(event);
+
+        if (key_event->key() == Qt::Key_Backspace) {
+            QString text = display->text();
+            text.chop(1);
+            display->setText(text);
+            return true;
+        }
+    }
+
+    return QWidget::eventFilter(watched, event);
 }
